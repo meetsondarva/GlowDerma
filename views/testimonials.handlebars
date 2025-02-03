@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      color: #00796b; /* Teal color */
+      margin-bottom: 40px;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .testimonial-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px); /* Lift effect on hover */
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-card h2 {
+      font-size: 24px;
+      color: #00796b; /* Same teal color as the heading */
+      margin-bottom: 10px;
+    }
+
+    .testimonial-card p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-card .rating {
+      font-weight: bold;
+      color: #ff9800; /* Yellow for the rating stars */
+    }
+
+    .testimonial-card .date {
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* Responsive design for smaller screens */
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .testimonial-card {
+        padding: 15px;
+        max-width: 280px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      .testimonial-card {
+        padding: 12px;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Customer Testimonials</h1>
+  <div class="testimonials">
+    {{#each testimonials}}
+      <div class="testimonial-card">
+        <h2>{{name}}</h2>
+        <p class="rating">Rating: {{rating}} stars</p>
+        <p>Comment: {{comment}}</p>
+        <p class="date">Date: {{date}}</p>
+      </div>
+    {{/each}}
+  </div>
+</body>
+</html>

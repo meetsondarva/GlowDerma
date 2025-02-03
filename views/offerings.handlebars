@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Offerings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            color: #555;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00695c; /* Dark teal for a sophisticated look */
+            margin-top: 60px;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .offerings {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        .offering-card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            max-width: 320px;
+        }
+
+        .offering-card:hover {
+            transform: translateY(-10px); /* Slight lift on hover */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .offering-card h2 {
+            color: #00796b; /* Matching teal for the title */
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .offering-card p {
+            font-size: 16px;
+            margin: 8px 0;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .offering-card strong {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .offering-card .unavailable {
+            background-color: #f9c2c2;
+            color: #b71c1c;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .offering-card .available {
+            background-color: #c8e6c9;
+            color: #388e3c;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .offering-card .unavailable p {
+            text-decoration: line-through;
+            color: #b71c1c;
+        }
+
+        /* Mobile-first design adjustments */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+                margin-top: 40px;
+            }
+
+            .offering-card {
+                padding: 20px;
+                max-width: 280px;
+            }
+
+            .offerings {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 30px;
+                margin-top: 20px;
+            }
+
+            .offerings {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .offering-card {
+                max-width: 100%;
+                padding: 18px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Our Offerings</h1>
+
+    <div class="offerings">
+        {{#each offerings}}
+            <div class="offering-card{{#if available}} available{{else}} unavailable{{/if}}">
+                <h2>{{name}}</h2>
+                <p><strong>Price:</strong> ${{price}}</p>
+                <p><strong>Duration:</strong> {{duration}}</p>
+                <p>{{description}}</p>
+            </div>
+        {{/each}}
+    </div>
+
+</body>
+</html>
